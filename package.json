@@ -1,0 +1,19 @@
+{
+  "name": "taro-tools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allen-hu-666/taro-tools.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/allen-hu-666/taro-tools/issues"
+  },
+  "homepage": "https://github.com/allen-hu-666/taro-tools#readme"
+}
