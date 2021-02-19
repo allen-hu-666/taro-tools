@@ -13,7 +13,7 @@ declare const qq: any
 declare const qa: any
 
 let isRegisted = false
-export default function registPageInterceptor(interceptor: (options: Object, oldPage: Function) => undefined, globalKey: string = '__page_interceptor') {
+export function registPageInterceptor(interceptor: (options: Object, oldPage: Function) => undefined, globalKey: string = '__page_interceptor') {
   if(isRegisted) return;
   isRegisted = true
 
@@ -22,6 +22,26 @@ export default function registPageInterceptor(interceptor: (options: Object, old
       interceptor(options, oldPage)
     }
   })
+}
+
+export function assignPageOptions(options, newOptions) {
+  options.data = Object.assign(options.data || {}, newOptions.data || {})
+
+  Object.keys(newOptions).forEach(key => {
+    if(key === 'data') return;
+    if(typeof newOptions[key] === 'function' && typeof options[key] === 'function') {
+      const oldFn = options[key],
+        newFn = newOptions[key]
+      options[key] = function() {
+        newFn.apply(this, arguments)
+        oldFn.apply(this, arguments)
+      }
+    } else {
+      options[key] = newOptions[key]
+    }
+  })
+
+  return options
 }
 
 

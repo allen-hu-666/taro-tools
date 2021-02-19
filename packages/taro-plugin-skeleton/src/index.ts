@@ -15,11 +15,9 @@ interface SkeletonPluginOptions {
   commonFolderName?: string
 }
 
-/* 用法见readme.md */
-
 export default (ctx: IPluginContext, options: SkeletonPluginOptions = {}) => {
   const htmlExtname = htmlExtnameMap[process.env.TARO_ENV]
-  if (!htmlExtname || !wxmlConverter) return
+  if (!htmlExtname) return
   const commonFolderName = options.commonFolderName || 'skeleton-common'
   const skeletonTmpWarrper = '<block wx:if="{{!root.cn || !root.cn[0]}}">${skeletonTmp}</block>';
 
@@ -42,28 +40,26 @@ export default (ctx: IPluginContext, options: SkeletonPluginOptions = {}) => {
       }
     });
     /* 处理commonFolder里面的wxml */
+    const files = []
     try {
-      const files = fs.readdirSync(path.resolve(process.cwd(), './src/' + commonFolderName)) || []
-
-      files.forEach(file => {
-        if(path.extname(file) !== '.wxml') return
-        const fileString = fs.readFileSync(path.resolve(process.cwd(), `./src/${commonFolderName}/${file}`), 'utf-8')
-        const resultTemplate = wxmlConverter(fileString, process.env.TARO_ENV)
-        assets[commonFolderName + '/' + file.replace('.wxml', `.${htmlExtname}`)] = {
-          size: function() {
-            return resultTemplate.length
-          },
-          source: function() {
-            return resultTemplate
-          }
-        }
-      })
-
-
+      const files = fs.readdirSync(path.resolve(process.cwd(), './src/' + commonFolderName))
     } catch (error) {
       // console.error(error)
     }
-    // assets[commonFolderName]
+
+    files.forEach(file => {
+      if(path.extname(file) !== '.wxml') return
+      const fileString = fs.readFileSync(path.resolve(process.cwd(), `./src/${commonFolderName}/${file}`), 'utf-8')
+      const resultTemplate = wxmlConverter(fileString, process.env.TARO_ENV)
+      assets[commonFolderName + '/' + file.replace('.wxml', `.${htmlExtname}`)] = {
+        size: function() {
+          return resultTemplate.length
+        },
+        source: function() {
+          return resultTemplate
+        }
+      }
+    })
   })
 
 

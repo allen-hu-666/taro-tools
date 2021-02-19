@@ -6,6 +6,9 @@
   "scripts": {
     "build": "tsc"
   },
+  "peerDependencies": {
+    "@tarojs/taro": ">=3.0.0"
+  },
   "author": "",
   "license": "ISC"
 }

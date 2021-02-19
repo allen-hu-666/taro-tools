@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { getCurrentInstance } from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 import { observer, inject } from 'mobx-react'
 
@@ -24,7 +25,9 @@ interface Index {
 class Index extends Component {
   componentWillMount () { }
 
-  componentDidMount () { }
+  componentDidMount () {
+    console.log('componentDidMount', getCurrentInstance().page)
+  }
 
   componentWillUnmount () { }
 
