@@ -1,7 +1,7 @@
-# Taro 骨架屏插件
-优化原理类似Taro3的[Prerender](https://taro-docs.jd.com/taro/docs/prerender)
-Taro page 初始化setData() 需要传递一个比较大的数据，导致初始化页面时会一段白屏的时间，这样的情况通常发生在页面初始化渲染的 wxml 节点数比较大或用户机器性能较低时发生。
-所以该方案在白屏这段时间用一个无状态(dataless)的 wxml来显示给用户
+# Taro3 骨架屏插件
+* 让你的Taro3页面更流程，优化原理类似Taro3的[Prerender](https://taro-docs.jd.com/taro/docs/prerender)
+* Taro page 初始化setData() 需要传递一个比较大的数据，导致初始化页面时会一段白屏的时间，这样的情况通常发生在页面初始化渲染的 wxml 节点数比较大或用户机器性能较低时发生。
+* 所以该方案在白屏这段时间用一个无状态(dataless)的 wxml来显示给用户
 
 ## 相比Prerender的优势
 *  wxml完全由自己控制，增加的size可控
@@ -11,7 +11,9 @@ Taro page 初始化setData() 需要传递一个比较大的数据，导致初始
   
 ## 相比Prerender的劣势
 * 需要自己写wxml代码，不过不用写css，所以工作量很少
+
 ## Install
+
 ```
   npm install taro-plugin-skeleton --save-dev
 ```
@@ -27,8 +29,8 @@ Taro page 初始化setData() 需要传递一个比较大的数据，导致初始
 ```
 
 ## 添加骨架屏
-每个页面的入口文件旁加一个pageName.skeleton.wxml文件来编写骨架屏wxml，插件会自动读取page入口文件旁的.skeleton.wxml，仿照页面的wxml结构即可，css不用重复写。
-wxml里是以微信小程序wxml语法，其它小程序会自动编译为对应平台语法，但只支持一些基本语法，如for循环、条件判断、include
+* 每个页面的入口文件旁加一个pageName.skeleton.wxml文件来编写骨架屏wxml，插件会自动读取page入口文件旁的.skeleton.wxml，仿照页面的wxml结构即可，css不用重复写。
+* wxml里是用的微信小程序wxml语法，其它小程序会自动编译为对应平台语法，但只支持一些基本语法，如for循环、条件判断、include
 ``` javascript
   /* src/pages/page.jsx */
   class Page{

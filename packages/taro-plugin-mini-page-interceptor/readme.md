@@ -22,7 +22,7 @@
   }
 ```
 
-## 注入代码
+## 注册Page拦截器
 请在入口文件app.js顶部注册拦截器
 ``` javascript
   import { registPageInterceptor, assignPageOptions } from 'taro-plugin-mini-page-interceptor/dist/pageInterceptor'
