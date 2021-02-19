@@ -60,6 +60,8 @@
     "eslint-plugin-react": "^7.8.2",
     "eslint-plugin-react-hooks": "^1.6.1",
     "stylelint": "9.3.0",
+    "taro-plugin-mini-page-interceptor": "^1.0.0",
+    "taro-plugin-skeleton": "^1.0.0",
     "typescript": "^3.7.0"
   }
 }

@@ -3,13 +3,13 @@
 Taro page 初始化setData() 需要传递一个比较大的数据，导致初始化页面时会一段白屏的时间，这样的情况通常发生在页面初始化渲染的 wxml 节点数比较大或用户机器性能较低时发生。
 所以该方案在白屏这段时间用一个无状态(dataless)的 wxml来显示给用户
 
-## 相对Prerender的优势
+## 相比Prerender的优势
 *  wxml完全由自己控制，增加的size可控
 *  避免了侵入项目写一些适配Prerender的代码
-*  一些动态变化的css，如statusBarHeight，Prerender是写死的，不能随机型变化，所以有些机型会出现错位感，如这个(issue)[https://github.com/NervJS/taro/issues/6488]
+*  一些动态变化的css，如statusBarHeight，Prerender是写死的，不能随机型变化，所以有些机型会出现错位感，如这个[issue](https://github.com/NervJS/taro/issues/6488)，该插件可以解决这个问题
 *  Prerender经常会运行不起来
   
-## 相对Prerender的劣势
+## 相比Prerender的劣势
 * 需要自己写wxml代码，不过不用写css，所以工作量很少
 ## Install
 ```
@@ -55,7 +55,7 @@ wxml里是以微信小程序wxml语法，其它小程序会自动编译为对应
     <text>0</text>
   </view>
 ```
-page.skeleton.wxml例子中的statusBarHeight变量可用这个插件来初始化
+page.skeleton.wxml例子中的statusBarHeight变量可用这个插件来初始化[taro-plugin-mini-page-interceptor](https://github.com/allen-hu-666/taro-tools/tree/master/packages/taro-plugin-mini-page-interceptor)
 ## 插件配置
 
 ``` typescript

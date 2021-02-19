@@ -2,13 +2,20 @@
   "name": "taro-plugin-mini-page-interceptor",
   "version": "1.0.0",
   "description": "",
+  "author": "Allen Hu",
+  "private": false,
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allen-hu-666/taro-tools"
+  },
+  "homepage": "https://github.com/allen-hu-666/taro-tools/tree/master/packages/taro-plugin-mini-page-interceptor",
+  "dependencies": {},
+  "devDependencies": {},
   "peerDependencies": {
     "@tarojs/taro": ">=3.0.0"
-  },
-  "author": "",
-  "license": "ISC"
+  }
 }

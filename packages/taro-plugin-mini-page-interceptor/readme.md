@@ -25,8 +25,9 @@
 ## 注入代码
 请在入口文件app.js顶部注册拦截器
 ``` javascript
-  import { registPageInterceptor, assignPageOptions } from '../packages/taro-plugin-mini-page-interceptor/dist/pageInterceptor'
+  import { registPageInterceptor, assignPageOptions } from 'taro-plugin-mini-page-interceptor/dist/pageInterceptor'
 
+  // registPageInterceptor只能被调用一次，多次调用无效
   registPageInterceptor(function MyPage(pageOptions, oldPage) { // options为page配置，oldPage为原生Page构造器
     // 在这里可以劫持options，做一些自己的操作，如添加data
     pageOptions = assignPageOptions(pageOptions, {
