@@ -21,9 +21,20 @@
 ## Taro 项目中使用
 ``` javascript
   /* config/index.js */
-  {
+  const config = {
     plugins: [
       'taro-plugin-skeleton'
+    ]
+  }
+  /* 或者加配置参数 */
+  const config = {
+    plugins: [
+      ['taro-plugin-skeleton', {
+        commonFolderName: 'skeleton-common',
+        pages: [
+          'pages/index/index'
+        ]
+      }]
     ]
   }
 ```
@@ -58,10 +69,23 @@
   </view>
 ```
 page.skeleton.wxml例子中的statusBarHeight变量可用这个插件来初始化[taro-plugin-mini-page-interceptor](https://github.com/allen-hu-666/taro-tools/tree/master/packages/taro-plugin-mini-page-interceptor)
+
+### 开发骨架屏
+
+在页面配置文件的json里定义onlyShowSkeletonView: true, 会让该页面只显示骨架屏不显示真实内容，以便调试开发pageName.skeleton.wxml
+
+``` javascript
+  /* src/pages/page.config.js */
+  export default {
+    onlyShowSkeletonView: true
+  }
+``` 
+
 ## 插件配置
 
 ``` typescript
   interface SkeletonPluginOptions {
-    commonFolderName?: string // 公共模板的文件夹，默认skeleton-common，即公共wxml模板文件可放在src/skeleton-common文件夹内
+    commonFolderName?: string; // 公共模板的文件夹，默认skeleton-common，即公共wxml模板文件可放在src/skeleton-common文件夹内
+    pages?: Array<String>; // 如果定义了pages，只会处理pages的页面的.skeleton.wxml，未定义会自动读取app.json里的所有page
   }
 ```

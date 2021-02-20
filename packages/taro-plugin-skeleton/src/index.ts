@@ -12,17 +12,18 @@ const htmlExtnameMap = {
 }
 
 interface SkeletonPluginOptions {
-  commonFolderName?: string
+  commonFolderName?: string;
+  pages?: Array<String>;
 }
 
-export default (ctx: IPluginContext, options: SkeletonPluginOptions = {}) => {
+export default (ctx: IPluginContext, pluginOpts: SkeletonPluginOptions = {}) => {
   const htmlExtname = htmlExtnameMap[process.env.TARO_ENV]
   if (!htmlExtname) return
-  const commonFolderName = options.commonFolderName || 'skeleton-common'
+  const commonFolderName = pluginOpts.commonFolderName || 'skeleton-common'
   const skeletonTmpWarrper = '<block wx:if="{{!root.cn || !root.cn[0]}}">${skeletonTmp}</block>';
 
   ctx.modifyBuildAssets(({ assets }) => {
-    const pages = JSON.parse(assets['app.json'].source()).pages
+    const pages = pluginOpts.pages || JSON.parse(assets['app.json'].source()).pages
     pages.forEach(pagePath => {
       const skeletonPath = path.resolve(process.cwd(), './src/' + pagePath) + `.skeleton.wxml`
       try {

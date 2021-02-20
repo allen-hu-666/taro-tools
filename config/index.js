@@ -22,8 +22,14 @@ const config = {
   },
   framework: 'react',
   plugins: [
-    'taro-plugin-mini-page-interceptor',
-    'taro-plugin-skeleton'
+    path.resolve(__dirname, '../packages/taro-plugin-mini-page-interceptor/dist/index.js'),
+    [path.resolve(__dirname, '../packages/taro-plugin-skeleton/dist/index.js'), {
+      pages: [
+        'pages/index/index'
+      ]
+    }],
+    //'taro-plugin-mini-page-interceptor',
+    //'taro-plugin-skeleton',
   ],
   mini: {
     postcss: {
