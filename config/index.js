@@ -30,6 +30,7 @@ const config = {
     }],
     //'taro-plugin-mini-page-interceptor',
     //'taro-plugin-skeleton',
+    'taro-plugin-platform-qa'
   ],
   mini: {
     postcss: {

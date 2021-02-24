@@ -1,0 +1,23 @@
+{
+  "name": "taro-plugin-platform-qa",
+  "version": "1.0.1",
+  "description": "",
+  "author": "allen",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allen-hu-666/taro-tools"
+  },
+  "homepage": "https://github.com/allen-hu-666/taro-tools/tree/master/packages/taro-plugin-platform-qa",
+  "dependencies": {
+    "@tarojs/service": "^3.1.0-alpha.1",
+    "@tarojs/shared": "^3.1.0-alpha.1"
+  },
+  "peerDependencies": {
+    "@tarojs/taro": ">=3.1.0"
+  }
+}

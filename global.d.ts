@@ -18,7 +18,7 @@ declare namespace JSX {
 // @ts-ignore
 declare const process: {
   env: {
-    TARO_ENV: 'weapp' | 'swan' | 'alipay' | 'h5' | 'rn' | 'tt' | 'quickapp' | 'qq' | 'jd';
+    TARO_ENV: 'weapp' | 'swan' | 'alipay' | 'h5' | 'rn' | 'tt' | 'quickapp' | 'qq' | 'jd' | 'qa';
     [key: string]: any;
   }
 }
@@ -32,3 +32,5 @@ declare const my: any
 declare const tt: any
 
 declare const qq: any
+
+declare const qa: any
