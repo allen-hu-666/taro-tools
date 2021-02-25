@@ -56,4 +56,29 @@ export default class Template extends RecursiveTemplate {
     return ('tmpl_' + l + '_' + n).replace('#', 'i_')
   }`
   }
+  getAttrValue(value, _key, _nodeName) {
+    let valueString = `{${value}}`
+    if(_nodeName === 'picker') { // 修改picker组件
+      valueString =  this._getPickerAttrValue(value, _key) || valueString
+    }
+    return valueString
+  }
+  _getPickerAttrValue(value, _key) {
+    // picker组件的增加默认值，避免在快应用中报错
+    if(_key === 'range') {
+      return `{${value} || []}`
+    }
+
+    if(_key === 'start') {
+      return `{${value} || '1940-01-01'}`
+    }
+
+    if(_key === 'end') {
+      return `{${value} || '2200-01-01'}`
+    }
+
+    if(_key === 'value') {
+      return `{${value} || '2021-01-01'}`
+    }
+  }
 }
