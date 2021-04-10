@@ -10,9 +10,9 @@ import quickappHandlers from './quickappHandlers'
 
 const handlerMap = {
   swan: swanHandlers,
-  tt: qqHandlers,
+  tt: ttHandlers,
   alipay: alipayHandlers,
-  qq: ttHandlers,
+  qq: qqHandlers,
   quickapp: quickappHandlers
 }
 
