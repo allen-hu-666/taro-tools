@@ -1,5 +1,5 @@
 # Taro3 骨架屏插件
-* 让你的Taro3页面更流程，优化原理类似Taro3的[Prerender](https://taro-docs.jd.com/taro/docs/prerender)
+* 让你的Taro3页面更流畅，优化原理类似Taro3的[Prerender](https://taro-docs.jd.com/taro/docs/prerender)
 * Taro page 初始化setData() 需要传递一个比较大的数据，导致初始化页面时会一段白屏的时间，这样的情况通常发生在页面初始化渲染的 wxml 节点数比较大或用户机器性能较低时发生。
 * 所以该方案在白屏这段时间用一个无状态(dataless)的 wxml来显示给用户
 
